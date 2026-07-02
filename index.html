@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Untuk Iyuy 03</title>
+
+<!-- ====== FONTS ====== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ======================================================
+     LAPISAN DEKORASI GLOBAL (hati & kelopak melayang)
+     JANGAN dihapus — dipakai oleh script.js untuk animasi
+====================================================== -->
+<div id="floaty-layer" aria-hidden="true"></div>
+
+<!-- Tombol musik. GANTI file musik di bagian <audio> paling bawah -->
+<button id="music-toggle" aria-label="Putar musik">
+  <span class="music-icon">♪</span>
+  <span class="music-label">Putar Musik</span>
+</button>
+
+<!-- ======================================================
+     LAYAR PEMBUKA
+====================================================== -->
+<section id="opening" class="screen active">
+  <div class="opening-sparkles" aria-hidden="true"></div>
+  <div class="opening-content">
+    <p class="opening-line line-1">Hallo, Iyuy.</p>
+    <p class="opening-line line-2">There's something for you....</p>
+    <button id="open-letter-btn" class="btn-primary reveal-btn">Buka Surat</button>
+  </div>
+</section>
+
+<!-- ======================================================
+     HALAMAN 1 — SAMPUL UCAPAN
+====================================================== -->
+<section id="page1" class="screen page">
+  <div class="page-inner cover-inner">
+
+    <!-- Ilustrasi beruang pink orisinal (bukan aset berhak cipta) -->
+    <!-- Easter egg: beruang ini bisa disentuh/diklik, akan memunculkan hati kecil -->
+    <svg class="bear-illustration" viewBox="0 0 220 220" role="button" tabindex="0" aria-label="Sentuh beruangnya">
+      <ellipse class="bear-shadow" cx="110" cy="200" rx="60" ry="10"/>
+      <circle class="bear-ear" cx="55" cy="55" r="26"/>
+      <circle class="bear-ear" cx="165" cy="55" r="26"/>
+      <circle class="bear-ear-inner" cx="55" cy="58" r="13"/>
+      <circle class="bear-ear-inner" cx="165" cy="58" r="13"/>
+      <ellipse class="bear-body" cx="110" cy="130" rx="78" ry="66"/>
+      <circle class="bear-head" cx="110" cy="80" r="58"/>
+      <ellipse class="bear-muzzle" cx="110" cy="92" rx="26" ry="19"/>
+      <circle class="bear-eye" cx="93" cy="72" r="4.5"/>
+      <circle class="bear-eye" cx="127" cy="72" r="4.5"/>
+      <ellipse class="bear-nose" cx="110" cy="86" rx="6" ry="4.5"/>
+      <path class="bear-mouth" d="M110 90 Q110 98 100 98" />
+      <path class="bear-mouth" d="M110 90 Q110 98 120 98" />
+      <circle class="bear-blush" cx="76" cy="90" r="8"/>
+      <circle class="bear-blush" cx="144" cy="90" r="8"/>
+      <path class="bear-heart" d="M110 118 c-8-10 -24-4 -22 8 c2 11 22 22 22 22 c0 0 20-11 22-22 c2-12 -14-18 -22-8 Z"/>
+    </svg>
+
+    <h1 class="title-serif cover-title">Happy Birthday</h1>
+    <p class="title-name">Iyam</p>
+    <p class="cover-date">Ciee Nambah Umur Nii yaa..</p>
+
+    <button class="btn-secondary next-btn" data-next="page2">Lanjutkan ↓</button>
+  </div>
+</section>
+
+<!-- ======================================================
+     HALAMAN 2 — KENANGAN
+====================================================== -->
+<section id="page2" class="screen page">
+  <div class="page-inner">
+    <h2 class="title-serif section-title">Welcome to umur baru. Semoga gak makin random ya</h2>
+    <p class="section-hint">Igit ada ramalan buat kamu tahun ini. Tap Kartunya yaa.</p>
+
+    <!-- GANTI teks di data-msg untuk mengubah isi kenangan -->
+    <div class="memory-grid">
+      <button class="memory-card" data-msg="10% makin dewasa, 20% makin sibuk, 70% nya makin Cuantikkk.. Poll">
+        <span class="memory-icon">🔮</span>
+        <span class="memory-label">Ramalan Umur 19</span>
+
+      </button>
+      <button class="memory-card" data-msg="Di umur 19 ini, tingkat kesabaran kamu diprediksi bakal setipis tisu dibagi dua. Tapi tenang, badai ruring-ruringan kamu bakal langsung reda kalau dikasih asupan Basreng and Matcha tepat waktu. Akurat 100%!">
+        <span class="memory-icon">🌤️</span>
+        <span class="memory-label">Ramalan Cuaca Hati</span>
+
+      </button>
+      <button class="memory-card" data-msg="Keuangan kamu tahun ini bakal stabil... stabil tipis maksudnya. Ramalan kuat mendeteksi pengeluaran kamu bakal abis buat Jajan demi self-reward yang tiada akhir. 💸">
+        <span class="memory-icon">🛍️</span>
+        <span class="memory-label">Ramalan Dompet</span>
+
+      </button>
+      <button class="memory-card" data-msg="Wah, di umur 19 ini kayaknya kamu bakal dapet banyak kenalan baru. eits tenang aja, ramalan bintang menjamin gak bakal ada yang bisa nandingin pesona MANTAN PERTAMA kamu yang ganteng dan niat banget bikin web ginian. Rekor sejarah gak bisa ditimpa, bos! 🥇">
+        <span class="memory-icon">😎</span>
+        <span class="memory-label">Ramalan Asmara</span>
+
+      </button>
+      <button class="memory-card" data-msg="Prediksi akurat hari ini: kamu bakal senyam-senyum sendiri natap layar sambil ngebatin 'dih pede banget si panutan pertama'. Anggap aja web ini petisi damai dan support system dari mantan ter-kreatif abad ini. Hhayy..">
+        <span class="memory-icon">✨</span>
+        <span class="memory-label">Prediksi Hari Ini</span>
+      </button>
+    </div>
+
+    <button class="btn-secondary next-btn" data-next="gallery">Lanjutkan ↓</button>
+  </div>
+</section>
+
+<!-- ======================================================
+     HALAMAN GALERI — FOTO KECIL & BESAR
+     ----------------------------------------------------
+     GANTI FOTO DI SINI:
+     1. Buat folder bernama "photos" di sebelah index.html
+     2. Simpan 1 foto besar bernama besar.jpg
+     3. Simpan sampai 6 foto kecil bernama kecil-1.jpg s/d kecil-6.jpg
+     Selama foto belum ada, kotak akan tampil sebagai placeholder
+     lembut supaya tetap rapi — begitu file foto ditambahkan,
+     placeholder otomatis berganti jadi foto aslinya.
+====================================================== -->
+<section id="gallery" class="screen page">
+  <div class="page-inner gallery-inner">
+    <h2 class="title-serif section-title">Your Galery</h2>
+    <p class="section-hint">Sentuh foto untuk memperbesar. Tap 2 kali yaa.</p>
+
+    <!-- FOTO BESAR -->
+    <button class="photo-frame photo-frame--big" data-full="./photos/besar.jpeg" aria-label="Perbesar foto">
+      <img src="./photos/besar.jpeg" alt="Foto kenangan" onerror="this.parentElement.classList.add('no-photo'); this.remove()">
+      <span class="photo-placeholder">
+        <span class="photo-placeholder-icon">🤍</span>
+        <span class="photo-placeholder-text">Foto besar<br>photos/besar.jpg</span>
+      </span>
+    </button>
+    <p class="photo-caption">Ini kamu pas lagi lucu lucunya, pantesan dulu aku sukaa</p>
+
+    <!-- FOTO KECIL, GAYA POLAROID -->
+    <div class="photo-grid">
+      <button class="photo-frame photo-frame--small tilt-1" data-full="./photos/kecil-1.jpeg" aria-label="Perbesar foto">
+        <img src="./photos/kecil-1.jpeg" alt="Foto kenangan kecil 1" onerror="this.parentElement.classList.add('no-photo'); this.remove()">
+        <span class="photo-placeholder"><span class="photo-placeholder-icon">🤍</span></span>
+      </button>
+      <button class="photo-frame photo-frame--small tilt-2" data-full="./photos/kecil-2.jpeg" aria-label="Perbesar foto">
+        <img src="./photos/kecil-2.jpeg" alt="Foto kenangan kecil 2" onerror="this.parentElement.classList.add('no-photo'); this.remove()">
+        <span class="photo-placeholder"><span class="photo-placeholder-icon">🤍</span></span>
+      </button>
+      <button class="photo-frame photo-frame--small tilt-3" data-full="./photos/kecil-3.jpeg" aria-label="Perbesar foto">
+        <img src="./photos/kecil-3.jpeg" alt="Foto kenangan kecil 3" onerror="this.parentElement.classList.add('no-photo'); this.remove()">
+        <span class="photo-placeholder"><span class="photo-placeholder-icon">🤍</span></span>
+      </button>
+      <button class="photo-frame photo-frame--small tilt-4" data-full="./photos/kecil-4.jpeg" aria-label="Perbesar foto">
+        <img src="./photos/kecil-4.jpeg" alt="Foto kenangan kecil 4" onerror="this.parentElement.classList.add('no-photo'); this.remove()">
+        <span class="photo-placeholder"><span class="photo-placeholder-icon">🤍</span></span>
+      </button>
+      <button class="photo-frame photo-frame--small tilt-5" data-full="./photos/kecil-5.jpeg" aria-label="Perbesar foto">
+        <img src="./photos/kecil-5.jpeg" alt="Foto kenangan kecil 5" onerror="this.parentElement.classList.add('no-photo'); this.remove()">
+        <span class="photo-placeholder"><span class="photo-placeholder-icon">🤍</span></span>
+      </button>
+      <button class="photo-frame photo-frame--small tilt-6" data-full="./photos/kecil-6.jpeg" aria-label="Perbesar foto">
+        <img src="./photos/kecil-6.jpeg" alt="Foto kenangan kecil 6" onerror="this.parentElement.classList.add('no-photo'); this.remove()">
+        <span class="photo-placeholder"><span class="photo-placeholder-icon">🤍</span></span>
+      </button>
+    </div>
+
+    <button class="btn-secondary next-btn" data-next="page3">Lanjutkan ↓</button>
+  </div>
+</section>
+
+<!-- Lightbox untuk memperbesar foto -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Tutup">✕</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="Foto diperbesar">
+</div>
+
+<!-- ======================================================
+     HALAMAN 3 — LANGIT HARAPAN
+====================================================== -->
+<section id="page3" class="screen page">
+  <div class="page-inner sky-inner">
+    <h2 class="title-serif section-title sky-title">Langit Harapan</h2>
+    <p class="section-hint sky-hint">Klik sebuah bintang untuk melihat satu harapan.</p>
+
+    <div class="star-field" id="star-field" aria-hidden="false">
+      <!-- Bintang-bintang dibuat otomatis lewat script.js -->
+    </div>
+
+    <div class="wish-banner" id="wish-banner">
+      <p id="wish-text"></p>
+    </div>
+
+    <button class="btn-secondary next-btn" data-next="page4">Lanjutkan ↓</button>
+  </div>
+</section>
+
+<!-- ======================================================
+     HALAMAN 4 — AMPLOP & SURAT
+====================================================== -->
+<section id="page4" class="screen page">
+  <div class="page-inner envelope-inner">
+    <h2 class="title-serif section-title">Sepucuk Surat</h2>
+    <p class="section-hint">For You, Iyuyy.</p>
+
+    <button id="envelope" class="envelope" aria-label="Buka amplop">
+      <span class="envelope-flap"></span>
+      <span class="envelope-body"></span>
+      <span class="envelope-heart">♡</span>
+    </button>
+
+    <!-- GANTI isi surat di dalam <p id="letter-text"> lewat script.js (variabel letterContent) -->
+    <div class="letter-wrap" id="letter-wrap">
+      <div class="letter-paper">
+        <p id="letter-text" class="letter-text"></p>
+        <span class="letter-cursor" id="letter-cursor">|</span>
+      </div>
+    </div>
+
+    <button class="btn-secondary next-btn" data-next="page5" id="to-final-btn">Lanjutkan ↓</button>
+  </div>
+</section>
+
+<!-- ======================================================
+     HALAMAN TERAKHIR
+====================================================== -->
+<section id="page5" class="screen page">
+  <div class="page-inner final-inner">
+    <div class="final-hearts" aria-hidden="true"></div>
+    <h1 class="title-serif final-title" id="final-title-1">Happy Birthday</h1>
+    <h1 class="title-serif final-title final-name">Iyam.</h1>
+    <p class="final-sub" id="final-sub-1">Semoga bahagia, hari ini dan seterusnya.</p>
+    <p class="final-sub final-sub-2">Tetap jadi orang baik.</p>
+    <p class="final-thanks">Terima kasih sudah membuka hadiah kecil ini.</p>
+  </div>
+</section>
+
+<!-- ======================================================
+     MUSIK — GANTI src di bawah dengan file musikmu sendiri
+     Contoh: <source src="music/piano-lembut.mp3" type="audio/mpeg">
+     Simpan file musik di folder "music/" pada project ini.
+====================================================== -->
+<audio id="bg-music" loop preload="none">
+ <source src="Semua-Aku-Dirayakan.mp3" type="audio/mpeg"> 
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
